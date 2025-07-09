@@ -12,6 +12,8 @@ import Women from './pages/women'
 import Laptop from './pages/laptop'
 import Smartphones from './pages/smartphones'
 import Kitchen from './pages/kitchen'
+import Success from './pages/success'
+import Cancel from './pages/cancel'
 
 function App() {
   return (
@@ -52,6 +54,8 @@ function App() {
         </Protected>} />
       <Route path='/login' element={<Login />} />
       <Route path='/register' element={<Register />} />
+      <Route path='/payments/success' element={<Success />} />
+      <Route path='/payments/cancel' element={<Cancel />} />
     </Routes>
   )
 }

@@ -1,14 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import useCart from "../../../context/cartContext";
 
 const Card = ({ product }) => {
 
   const navigate = useNavigate();
+  const { addToCart, cartItems } = useCart();
 
   const handleNavigateToProductDetails = (id) => {
     navigate(`/products/${id}`)
   }
+
+  const isProductInCart = cartItems.some((item) => item.id === product.id);
 
   return (
 
@@ -28,13 +31,25 @@ const Card = ({ product }) => {
         <p className="text-blue-600 font-medium">{product.availabilityStatus}</p>
       </div>
       <button
-        onClick={ () => handleNavigateToProductDetails(product.id)}
+        onClick={() => handleNavigateToProductDetails(product.id)}
         className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-md hover:shadow-lg">
         View Details
       </button>
-      <button className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-md hover:shadow-lg mt-3">
-        Add to Cart
-      </button>
+      {
+        isProductInCart ? (
+          <button
+            disabled
+            className="w-full bg-gray-400 text-white font-semibold py-3 px-4 rounded-lg mt-2 cursor-not-allowed">
+            Already in Cart
+          </button>
+        ) : (
+          <button
+            onClick={() => addToCart(product)}
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded-lg mt-2 transition-colors duration-200 transform hover:scale-105 shadow-md hover:shadow-lg">
+            Add to Cart
+          </button>
+        )
+      }
     </div>
   )
 }

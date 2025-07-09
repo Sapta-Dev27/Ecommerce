@@ -3,13 +3,13 @@ import { getAuth } from "firebase/auth";
 import { GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDDlQH5R9Od73bQjjgr1ta3VyDxuGf08hk",
-  authDomain: "shoponline-884be.firebaseapp.com",
-  projectId: "shoponline-884be",
-  storageBucket: "shoponline-884be.firebasestorage.app",
-  messagingSenderId: "671135716970",
-  appId: "1:671135716970:web:6f6a2493fe0b59025d9c13",
-  measurementId: "G-JC3GSX2LNZ"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);

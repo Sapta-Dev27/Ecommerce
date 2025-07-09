@@ -3,13 +3,16 @@ import useProductContext from "../../context/productContext.jsx";
 import Loader from "../layout/loader.jsx";
 import { useParams } from "react-router-dom";
 import useAuth from "../../context/authContext.jsx";
-
+import useCart from "../../context/cartContext.jsx";
 
 const ProductDetails = () => {
 
   const { loading, productDetails, setLoading, setProductDetails } = useProductContext();
   const { id } = useParams();
   console.log("Product ID from URL:", id);
+
+  const { addToCart, cartItems } = useCart();
+  const isProductInCart = cartItems.some((item) => item.id === productDetails.id)
 
   const { user } = useAuth();
   console.log("User in ProductDetails component:", user);
@@ -125,12 +128,18 @@ const ProductDetails = () => {
               </div>
 
               <div className="pt-6">
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-lg">
-                  Add to Cart
-                </button>
-                <button className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-lg mt-2">
-                  Buy Now
-                </button>
+                {
+                  isProductInCart ? (
+                    <button className="w-full bg-gray-400 text-black font-bold py-4 px-6 rounded-lg transition-colors duration-200 transform hover:scale-105 shadow-lg cursor-not-allowed">Added To Cart</button>
+                  ) :
+                    (
+                      <button
+                        onClick={() => addToCart(productDetails)}
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg mt-2 transition-colors duration-200 transform hover:scale-105 shadow-md hover:shadow-lg">
+                        Add to Cart
+                      </button>
+                    )
+                }
               </div>
             </div>
           </div>
@@ -143,7 +152,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
-            
+
             <div className="space-y-4">
               <div className="border-l-4 border-blue-500 pl-4">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">Product Dimensions</h3>
@@ -167,7 +176,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-          
+
 
             <div className="space-y-4">
               <div className="border-l-4 border-purple-500 pl-4">
@@ -205,7 +214,7 @@ const ProductDetails = () => {
           </div>
         </div>
 
-       
+
         <div className="mt-8 bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="bg-blue-600 px-8 py-4">
             <h2 className="text-2xl font-bold text-white">Product Reviews</h2>
