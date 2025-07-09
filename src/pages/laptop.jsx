@@ -1,16 +1,16 @@
 import React from 'react'
-import ProductDetails from '../components/productDetails/productDetails'
 import Navbar from '../components/layout/navbar'
+import List from '../components/productsList/laptops/list'
 import Footer from '../components/layout/footer'
 
-function productDetails() {
+function laptop() {
   return (
     <div>
       <Navbar />
-      <ProductDetails />
-      <Footer/>
+      <List />
+      <Footer />
     </div>
   )
 }
 
-export default productDetails
+export default laptop

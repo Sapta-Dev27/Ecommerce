@@ -36,11 +36,12 @@ const Navbar = () => {
         <h1 className="text-xl font-bold text-blue-700 ml-6">ShopOnline</h1>
       </div>
       <div className="flex flex-row gap-2 ml-6">
-        <a href='/men' className='px-4 text-gray-600 font-medium '>Men</a>
-        <a href='/women' className='px-4 text-gray-600 font-medium  '>Women</a>
-        <a href='/smartphones' className='px-4  text-gray-600 font-medium  '>SmartPhones</a>
-        <a href='/laptops' className='px-4 text-gray-600 font-medium  '>Laptops</a>
-        <a href='/kitchen' className='px-4 text-gray-600 font-medium  '>Kitchen</a>
+        <a href='/products/men' className='px-4 text-gray-600 font-medium '>Men</a>
+        <a href='/products/women' className='px-4 text-gray-600 font-medium  '>Women</a>
+        <a href='/products/smartphones' className='px-4  text-gray-600 font-medium  '>SmartPhones</a>
+        <a href='/products/laptops' className='px-4 text-gray-600 font-medium  '>Laptops</a>
+        <a href='/products/kitchen' className='px-4 text-gray-600 font-medium  '>Kitchen</a>
+        <a href='/products' className='px-4 text-gray-600 font-medium  '>Explore</a>
       </div>
       <div className="flex flex-row gap-2">
         {
