@@ -1,4 +1,4 @@
-# A Ecommerce application built using ReactJS , Tailwind CSS , Firebase for Auth , ContextAPI for state management and Ecommerce API for data fetching.
+# A Ecommerce application built using ReactJS , Tailwind CSS , Firebase for Auth , ContextAPI for state management , Ecommerce API for data fetching and Stripe for fast and secure payment checkout
 
 ![ec](https://github.com/user-attachments/assets/e4dbcb29-e5c5-4676-ba14-4be0f4fcbacb)
 
